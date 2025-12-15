@@ -1,7 +1,7 @@
 import streamlit as st
 from helper_code import vectordb_creation, get_qa_chain
 
-st.title("CODE BASICS Q&A")
+st.title("COBBOT 🤓")
 
 if st.button("Create Knowledgebase"):
     vectordb_creation()
@@ -14,4 +14,5 @@ if question:
     response = chain.invoke(question)
 
     st.header("Answer")
+
     st.write(response)
