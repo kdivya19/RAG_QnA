@@ -22,7 +22,7 @@ vectordb_filepath="faiss_index"
 
 def vectordb_creation():
     loader = CSVLoader(
-        file_path='D:/DA_DS/VS_Code/QA_RAG/codebasics_faqs.csv',
+        file_path='codebasics_faqs.csv'#(give the file path that you have saved),
         source_column='prompt'
     )
 
@@ -61,9 +61,6 @@ def get_qa_chain():
         input_variables=["context", "question"]
     )
 
-    from langchain_core.runnables import RunnablePassthrough
-    from langchain_core.output_parsers import StrOutputParser
-
     chain = (
         {
             "context": retriever,
@@ -81,4 +78,5 @@ def get_qa_chain():
 if __name__=="__main__":
     vectordb_creation()
     chain=get_qa_chain()
+
     print(chain("Do you have java course?"))
